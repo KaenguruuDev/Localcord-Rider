@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>dev.kaenguruudev.localcord</id>
+    <name>Localcord</name>
+    <vendor>KaenguruuDev</vendor>
+
+    <description>
+        Localcord DSL support for JetBrains Rider.
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+                name="Localcord Scenario"
+                implementationClass="dev.kaenguruudev.localcord.LocalcordScenarioFileType"
+                fieldName="INSTANCE"
+                language="Localcord"
+                extensions="lc" />
+
+        <fileType
+                name="Localcord Fixture"
+                implementationClass="dev.kaenguruudev.localcord.LocalcordFixtureFileType"
+                fieldName="INSTANCE"
+                language="Localcord"
+                extensions="lcf" />
+    </extensions>
+</idea-plugin>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="localcord-logo.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="86.262857"
+     inkscape:cx="11.117183"
+     inkscape:cy="7.3438328"
+     inkscape:window-width="3840"
+     inkscape:window-height="2089"
+     inkscape:window-x="1072"
+     inkscape:window-y="1072"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <defs
+     id="defs6">
+    <linearGradient
+       id="blue"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0"
+         stop-color="#5B8CFF"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#2F6DF6"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="cyanGreen"
+       x1="148.15399"
+       y1="76.60273"
+       x2="221.59784"
+       y2="150.04659"
+       gradientTransform="scale(0.78971888,1.2662734)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#2E9BFF"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#36E3A5"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="wordmark"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
+      <stop
+         offset="0"
+         stop-color="#FFFFFF"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#D9DEE8"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#blue"
+       id="linearGradient14"
+       x1="129.50298"
+       y1="33.443249"
+       x2="224.35022"
+       y2="128.2905"
+       gradientTransform="scale(0.54824997,1.8239855)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#blue"
+       id="linearGradient15"
+       x1="138.95239"
+       y1="259.5997"
+       x2="160.58571"
+       y2="281.233"
+       gradientTransform="scale(1.2018504,0.83205029)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#blue"
+       id="linearGradient16"
+       x1="50"
+       y1="10"
+       x2="110"
+       y2="70"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#blue"
+       id="linearGradient17"
+       x1="116"
+       y1="196"
+       x2="174"
+       y2="254"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#blue"
+       id="linearGradient18"
+       x1="186"
+       y1="196"
+       x2="244"
+       y2="254"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     transform="matrix(0.0654819,0,0,0.0654819,-1.6258393,-0.64514294)"
+     fill="none"
+     id="g10">
+    <!-- main path -->
+    <path
+       d="m 80,61 v 144 q 0,20 20,20 h 23"
+       stroke="url(#blue)"
+       stroke-width="18"
+       stroke-linecap="butt"
+       stroke-linejoin="round"
+       id="path6"
+       style="stroke:url(#linearGradient14)" />
+    <!-- connector between lower circles -->
+    <path
+       d="m 167,225 h 26"
+       stroke="url(#blue)"
+       stroke-width="18"
+       stroke-linecap="butt"
+       stroke-linejoin="round"
+       id="path7"
+       style="stroke:url(#linearGradient15)" />
+    <!-- inner branch -->
+    <path
+       d="m 125,190 v -65 q 0,-20 20,-20 h 30"
+       stroke="url(#cyanGreen)"
+       stroke-width="16"
+       stroke-linecap="butt"
+       stroke-linejoin="round"
+       id="path8"
+       style="stroke:url(#cyanGreen)" />
+    <!-- top node -->
+    <circle
+       cx="80"
+       cy="40"
+       r="23"
+       stroke="url(#blue)"
+       stroke-width="14"
+       id="circle8"
+       style="stroke:url(#linearGradient16)" />
+    <!-- lower nodes -->
+    <circle
+       cx="145"
+       cy="225"
+       r="22"
+       stroke="url(#blue)"
+       stroke-width="14"
+       id="circle9"
+       style="stroke:url(#linearGradient17)" />
+    <circle
+       cx="215"
+       cy="225"
+       r="22"
+       stroke="url(#blue)"
+       stroke-width="14"
+       id="circle10"
+       style="stroke:url(#linearGradient18)" />
+    <!-- square node -->
+    <rect
+       x="175"
+       y="79"
+       width="52"
+       height="52"
+       rx="8"
+       stroke="#38e2ac"
+       stroke-width="14"
+       id="rect10" />
+  </g>
+</svg>
