@@ -1,0 +1,27 @@
+name: Publish Plugin
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out release
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Publish to JetBrains Marketplace
+        env:
+          ORG_GRADLE_PROJECT_intellijPlatformPublishingToken: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
+        run: bash ./gradlew verifyPlugin publishPlugin
