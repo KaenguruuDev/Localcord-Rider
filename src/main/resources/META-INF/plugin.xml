@@ -8,6 +8,7 @@
     </description>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType
@@ -15,13 +16,13 @@
                 implementationClass="dev.kaenguruudev.localcord.LocalcordScenarioFileType"
                 fieldName="INSTANCE"
                 language="Localcord"
-                extensions="lc" />
+                extensions="lc"/>
 
         <fileType
                 name="Localcord Fixture"
                 implementationClass="dev.kaenguruudev.localcord.LocalcordFixtureFileType"
                 fieldName="INSTANCE"
-                language="Localcord"
-                extensions="lcf" />
+                language="YAML"
+                extensions="lcf"/>
     </extensions>
 </idea-plugin>

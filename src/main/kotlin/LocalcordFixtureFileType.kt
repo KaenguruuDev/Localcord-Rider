@@ -1,9 +1,10 @@
 ﻿package dev.kaenguruudev.localcord
 
 import com.intellij.openapi.fileTypes.LanguageFileType
+import org.jetbrains.yaml.YAMLLanguage
 import javax.swing.Icon
 
-class LocalcordFixtureFileType private constructor() : LanguageFileType(LocalcordLanguage) {
+class LocalcordFixtureFileType private constructor() : LanguageFileType(YAMLLanguage.INSTANCE) {
     override fun getName() = "Localcord Fixture"
     override fun getDisplayName() = "Localcord Fixture"
     override fun getDescription() = "Localcord fixture file"
