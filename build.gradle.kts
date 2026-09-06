@@ -5,6 +5,12 @@ plugins {
     id("org.jetbrains.intellij.platform")
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
 intellijPlatform {
     publishing {
         token = providers.gradleProperty("intellijPlatformPublishingToken")
