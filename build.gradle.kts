@@ -19,6 +19,7 @@ dependencies {
     intellijPlatform {
         rider("2026.2")
         bundledPlugin("org.jetbrains.plugins.yaml")
+        plugin("com.redhat.devtools.lsp4ij:0.21.0")
         testFramework(TestFrameworkType.Platform)
 
         // Add plugin dependencies for compilation here, for example:

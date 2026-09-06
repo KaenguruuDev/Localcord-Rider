@@ -9,6 +9,7 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.plugins.yaml</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType
@@ -24,5 +25,27 @@
                 fieldName="INSTANCE"
                 language="YAML"
                 extensions="lcf"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server
+                id="localcord"
+                name="Localcord Language Server"
+                factoryClass="dev.kaenguruudev.localcord.LocalcordLanguageServerFactory">
+            <description><![CDATA[
+                <p>Starts <code>localcord lsp</code> for Localcord scenario files.</p>
+                <p>The Localcord CLI must be installed separately and available on the IDE's PATH.</p>
+            ]]></description>
+        </server>
+
+        <languageMapping
+                language="Localcord"
+                serverId="localcord"
+                languageId="localcord"/>
+
+        <fileNamePatternMapping
+                patterns="*.lcf"
+                serverId="localcord"
+                languageId="localcord"/>
     </extensions>
 </idea-plugin>
