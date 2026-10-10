@@ -11,6 +11,7 @@ import java.awt.BorderLayout
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import javax.swing.JCheckBox
+import javax.swing.JComboBox
 import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
@@ -23,8 +24,20 @@ internal class LocalcordRunConfigurationEditor<T>(project: Project) : SettingsEd
     private val environmentFileField = TextFieldWithBrowseButton()
     private val baseUrlField = JTextField()
     private val filterField = JTextField()
+    private val reportFormatField = JComboBox(arrayOf("", "console", "junit", "both"))
+    private val junitPathField = TextFieldWithBrowseButton()
+    private val artifactsPathField = TextFieldWithBrowseButton()
+    private val repeatField = JTextField()
+    private val seedField = JTextField()
+    private val shuffleCheckBox = JCheckBox("Shuffle scenarios")
+    private val scenarioTimeoutField = JTextField()
+    private val parallelField = JTextField()
+    private val failFastCheckBox = JCheckBox("Stop after the first failed scenario")
     private val noComposeCheckBox = JCheckBox("Disable Docker Compose orchestration")
+    private val reuseEnvironmentCheckBox = JCheckBox("Reuse the Compose environment after the run")
     private val verboseCheckBox = JCheckBox("Enable verbose output")
+    private val diagnosticsLevelField =
+        JComboBox(arrayOf("", "off", "failure", "error", "warning", "information"))
     private val panel = JPanel(GridBagLayout())
     private var row = 0
 
@@ -41,14 +54,33 @@ internal class LocalcordRunConfigurationEditor<T>(project: Project) : SettingsEd
             project,
             FileChooserDescriptorFactory.singleFile(),
         )
+        junitPathField.addBrowseFolderListener(
+            project,
+            FileChooserDescriptorFactory.singleFile(),
+        )
+        artifactsPathField.addBrowseFolderListener(
+            project,
+            FileChooserDescriptorFactory.createSingleFolderDescriptor(),
+        )
 
         addRow("Scenario:", scenarioField)
         addRow("Runner config:", runnerConfigField)
         addRow("Environment file:", environmentFileField)
         addRow("Base URL:", baseUrlField)
         addRow("Filter:", filterField)
+        addRow("Report format:", reportFormatField)
+        addRow("JUnit output path:", junitPathField)
+        addRow("Artifacts path:", artifactsPathField)
+        addRow("Repeat:", repeatField)
+        addRow("Seed:", seedField)
+        addFullWidth(shuffleCheckBox)
+        addRow("Scenario timeout:", scenarioTimeoutField)
+        addRow("Parallelism:", parallelField)
+        addFullWidth(failFastCheckBox)
         addFullWidth(noComposeCheckBox)
+        addFullWidth(reuseEnvironmentCheckBox)
         addFullWidth(verboseCheckBox)
+        addRow("Diagnostics level:", diagnosticsLevelField)
 
         scenarioField.textField.setToolTipText(HtmlChunk.text("The .lc scenario file to execute"))
         runnerConfigField.textField.setToolTipText(
@@ -65,6 +97,24 @@ internal class LocalcordRunConfigurationEditor<T>(project: Project) : SettingsEd
         filterField.setToolTipText(
             HtmlChunk.text("Optional Localcord filter; empty runs only the selected scenario")
         )
+        reportFormatField.setToolTipText(
+            HtmlChunk.text("Optional report override: console, junit, or both")
+        )
+        junitPathField.textField.setToolTipText(HtmlChunk.text("Optional JUnit XML output path"))
+        artifactsPathField.textField.setToolTipText(
+            HtmlChunk.text("Optional directory for failure artifact bundles")
+        )
+        repeatField.setToolTipText(HtmlChunk.text("Optional number of times to repeat the plan"))
+        seedField.setToolTipText(HtmlChunk.text("Optional deterministic integer shuffle seed"))
+        scenarioTimeoutField.setToolTipText(
+            HtmlChunk.text("Optional per-scenario timeout, for example 30s or 2m")
+        )
+        parallelField.setToolTipText(HtmlChunk.text("Optional maximum scenario worker count"))
+        diagnosticsLevelField.setToolTipText(
+            HtmlChunk.text(
+                "Optional diagnostics level: off, failure, error, warning, or information"
+            )
+        )
     }
 
     override fun resetEditorFrom(configuration: T) {
@@ -73,8 +123,19 @@ internal class LocalcordRunConfigurationEditor<T>(project: Project) : SettingsEd
         environmentFileField.text = configuration.environmentFilePath
         baseUrlField.text = configuration.baseUrl
         filterField.text = configuration.filter
+        reportFormatField.selectedItem = configuration.reportFormat
+        junitPathField.text = configuration.junitPath
+        artifactsPathField.text = configuration.artifactsPath
+        repeatField.text = configuration.repeat
+        seedField.text = configuration.seed
+        shuffleCheckBox.isSelected = configuration.shuffle
+        scenarioTimeoutField.text = configuration.scenarioTimeout
+        parallelField.text = configuration.parallel
+        failFastCheckBox.isSelected = configuration.failFast
         noComposeCheckBox.isSelected = configuration.noCompose
+        reuseEnvironmentCheckBox.isSelected = configuration.reuseEnvironment
         verboseCheckBox.isSelected = configuration.verbose
+        diagnosticsLevelField.selectedItem = configuration.diagnosticsLevel
     }
 
     override fun applyEditorTo(configuration: T) {
@@ -83,8 +144,19 @@ internal class LocalcordRunConfigurationEditor<T>(project: Project) : SettingsEd
         configuration.environmentFilePath = environmentFileField.text.trim()
         configuration.baseUrl = baseUrlField.text.trim()
         configuration.filter = filterField.text.trim()
+        configuration.reportFormat = reportFormatField.selectedItem?.toString().orEmpty()
+        configuration.junitPath = junitPathField.text.trim()
+        configuration.artifactsPath = artifactsPathField.text.trim()
+        configuration.repeat = repeatField.text.trim()
+        configuration.seed = seedField.text.trim()
+        configuration.shuffle = shuffleCheckBox.isSelected
+        configuration.scenarioTimeout = scenarioTimeoutField.text.trim()
+        configuration.parallel = parallelField.text.trim()
+        configuration.failFast = failFastCheckBox.isSelected
         configuration.noCompose = noComposeCheckBox.isSelected
+        configuration.reuseEnvironment = reuseEnvironmentCheckBox.isSelected
         configuration.verbose = verboseCheckBox.isSelected
+        configuration.diagnosticsLevel = diagnosticsLevelField.selectedItem?.toString().orEmpty()
         configuration.localcordSettingsChanged()
     }
 

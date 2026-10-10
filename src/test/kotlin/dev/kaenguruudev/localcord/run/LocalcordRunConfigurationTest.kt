@@ -71,10 +71,11 @@ class LocalcordRunConfigurationTest {
     @Test
     fun localcordSettingsChangedResolvesRelativeScenarioPathForDapConfiguration() {
         withTempDirectory { root ->
-            val scenario = root.resolve("scenarios/ping.lc").apply {
-                parentFile.mkdirs()
-                writeText("scenario: ping\n")
-            }
+            val scenario =
+                root.resolve("scenarios/ping.lc").apply {
+                    parentFile.mkdirs()
+                    writeText("scenario: ping\n")
+                }
             val config = root.resolve("localcord.runner.yaml").apply { writeText("version: 1\n") }
             val relativeScenarioPath =
                 File(System.getProperty("user.dir"))
@@ -106,9 +107,20 @@ class LocalcordRunConfigurationTest {
             configuration.environmentFilePath = ".env.test"
             configuration.baseUrl = "https://localhost:9090"
             configuration.filter = "smoke|ping"
+            configuration.reportFormat = "both"
+            configuration.junitPath = "artifacts/results.xml"
+            configuration.artifactsPath = "artifacts/failures"
+            configuration.repeat = "2"
+            configuration.seed = "42"
+            configuration.shuffle = true
+            configuration.scenarioTimeout = "30s"
+            configuration.parallel = "4"
+            configuration.failFast = true
             configuration.runAll = true
             configuration.noCompose = true
+            configuration.reuseEnvironment = true
             configuration.verbose = true
+            configuration.diagnosticsLevel = "warning"
 
             assertEquals(
                 LocalcordRunSettings(
@@ -117,9 +129,20 @@ class LocalcordRunConfigurationTest {
                     environmentFilePath = ".env.test",
                     baseUrl = "https://localhost:9090",
                     filter = "smoke|ping",
+                    reportFormat = "both",
+                    junitPath = "artifacts/results.xml",
+                    artifactsPath = "artifacts/failures",
+                    repeat = "2",
+                    seed = "42",
+                    shuffle = true,
+                    scenarioTimeout = "30s",
+                    parallel = "4",
+                    failFast = true,
                     runAll = true,
                     noCompose = true,
+                    reuseEnvironment = true,
                     verbose = true,
+                    diagnosticsLevel = "warning",
                 ),
                 configuration.settings(),
             )
@@ -236,9 +259,20 @@ class LocalcordRunConfigurationTest {
                 environmentFilePath = ".env.test",
                 baseUrl = "https://localhost:9090",
                 filter = "smoke|ping",
+                reportFormat = "both",
+                junitPath = "artifacts/results.xml",
+                artifactsPath = "artifacts/failures",
+                repeat = "2",
+                seed = "42",
+                shuffle = true,
+                scenarioTimeout = "30s",
+                parallel = "4",
+                failFast = true,
                 runAll = true,
                 noCompose = true,
+                reuseEnvironment = true,
                 verbose = true,
+                diagnosticsLevel = "warning",
             )
         val element = Element("configuration")
 
@@ -248,9 +282,20 @@ class LocalcordRunConfigurationTest {
             configuration.environmentFilePath = expected.environmentFilePath
             configuration.baseUrl = expected.baseUrl
             configuration.filter = expected.filter
+            configuration.reportFormat = expected.reportFormat
+            configuration.junitPath = expected.junitPath
+            configuration.artifactsPath = expected.artifactsPath
+            configuration.repeat = expected.repeat
+            configuration.seed = expected.seed
+            configuration.shuffle = expected.shuffle
+            configuration.scenarioTimeout = expected.scenarioTimeout
+            configuration.parallel = expected.parallel
+            configuration.failFast = expected.failFast
             configuration.runAll = expected.runAll
             configuration.noCompose = expected.noCompose
+            configuration.reuseEnvironment = expected.reuseEnvironment
             configuration.verbose = expected.verbose
+            configuration.diagnosticsLevel = expected.diagnosticsLevel
             configuration.writeExternal(element)
         }
 
@@ -269,9 +314,20 @@ class LocalcordRunConfigurationTest {
             configuration.environmentFilePath = "/workspace/.env.test"
             configuration.baseUrl = "https://localhost:9090"
             configuration.filter = "smoke|ping"
+            configuration.reportFormat = "both"
+            configuration.junitPath = "artifacts/results.xml"
+            configuration.artifactsPath = "artifacts/failures"
+            configuration.repeat = "2"
+            configuration.seed = "42"
+            configuration.shuffle = true
+            configuration.scenarioTimeout = "30s"
+            configuration.parallel = "4"
+            configuration.failFast = true
             configuration.runAll = true
             configuration.noCompose = true
+            configuration.reuseEnvironment = true
             configuration.verbose = true
+            configuration.diagnosticsLevel = "warning"
 
             assertEquals(configuration.settings(), configuration.clone().settings())
         }

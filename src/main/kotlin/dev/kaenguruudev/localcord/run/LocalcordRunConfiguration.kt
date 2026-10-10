@@ -24,9 +24,20 @@ class LocalcordRunConfiguration(
     override var environmentFilePath: String = ""
     override var baseUrl: String = ""
     override var filter: String = ""
+    override var reportFormat: String = ""
+    override var junitPath: String = ""
+    override var artifactsPath: String = ""
+    override var repeat: String = ""
+    override var seed: String = ""
+    override var shuffle: Boolean = false
+    override var scenarioTimeout: String = ""
+    override var parallel: String = ""
+    override var failFast: Boolean = false
     override var runAll: Boolean = false
     override var noCompose: Boolean = false
+    override var reuseEnvironment: Boolean = false
     override var verbose: Boolean = false
+    override var diagnosticsLevel: String = ""
 
     override fun canRun(executorId: String): Boolean = executorId == "Debug"
 
@@ -114,9 +125,20 @@ class LocalcordRunConfiguration(
         environmentFilePath = values.environmentFilePath
         baseUrl = values.baseUrl
         filter = values.filter
+        reportFormat = values.reportFormat
+        junitPath = values.junitPath
+        artifactsPath = values.artifactsPath
+        repeat = values.repeat
+        seed = values.seed
+        shuffle = values.shuffle
+        scenarioTimeout = values.scenarioTimeout
+        parallel = values.parallel
+        failFast = values.failFast
         runAll = values.runAll
         noCompose = values.noCompose
+        reuseEnvironment = values.reuseEnvironment
         verbose = values.verbose
+        diagnosticsLevel = values.diagnosticsLevel
     }
 
     override fun writeExternal(element: Element) {
@@ -132,9 +154,20 @@ class LocalcordRunConfiguration(
             environmentFilePath = this@LocalcordRunConfiguration.environmentFilePath
             baseUrl = this@LocalcordRunConfiguration.baseUrl
             filter = this@LocalcordRunConfiguration.filter
+            reportFormat = this@LocalcordRunConfiguration.reportFormat
+            junitPath = this@LocalcordRunConfiguration.junitPath
+            artifactsPath = this@LocalcordRunConfiguration.artifactsPath
+            repeat = this@LocalcordRunConfiguration.repeat
+            seed = this@LocalcordRunConfiguration.seed
+            shuffle = this@LocalcordRunConfiguration.shuffle
+            scenarioTimeout = this@LocalcordRunConfiguration.scenarioTimeout
+            parallel = this@LocalcordRunConfiguration.parallel
+            failFast = this@LocalcordRunConfiguration.failFast
             runAll = this@LocalcordRunConfiguration.runAll
             noCompose = this@LocalcordRunConfiguration.noCompose
+            reuseEnvironment = this@LocalcordRunConfiguration.reuseEnvironment
             verbose = this@LocalcordRunConfiguration.verbose
+            diagnosticsLevel = this@LocalcordRunConfiguration.diagnosticsLevel
         }
         return copy
     }
@@ -146,9 +179,20 @@ class LocalcordRunConfiguration(
             environmentFilePath = environmentFilePath,
             baseUrl = baseUrl,
             filter = filter,
+            reportFormat = reportFormat,
+            junitPath = junitPath,
+            artifactsPath = artifactsPath,
+            repeat = repeat,
+            seed = seed,
+            shuffle = shuffle,
+            scenarioTimeout = scenarioTimeout,
+            parallel = parallel,
+            failFast = failFast,
             runAll = runAll,
             noCompose = noCompose,
+            reuseEnvironment = reuseEnvironment,
             verbose = verbose,
+            diagnosticsLevel = diagnosticsLevel,
         )
 
     private fun configurationValues(): LocalcordRunConfigurationValues =
@@ -158,8 +202,19 @@ class LocalcordRunConfiguration(
             environmentFilePath = environmentFilePath,
             baseUrl = baseUrl,
             filter = filter,
+            reportFormat = reportFormat,
+            junitPath = junitPath,
+            artifactsPath = artifactsPath,
+            repeat = repeat,
+            seed = seed,
+            shuffle = shuffle,
+            scenarioTimeout = scenarioTimeout,
+            parallel = parallel,
+            failFast = failFast,
             runAll = runAll,
             noCompose = noCompose,
+            reuseEnvironment = reuseEnvironment,
             verbose = verbose,
+            diagnosticsLevel = diagnosticsLevel,
         )
 }
