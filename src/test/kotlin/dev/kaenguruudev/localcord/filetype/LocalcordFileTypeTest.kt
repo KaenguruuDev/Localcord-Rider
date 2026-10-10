@@ -1,5 +1,6 @@
-package dev.kaenguruudev.localcord
+package dev.kaenguruudev.localcord.filetype
 
+import dev.kaenguruudev.localcord.language.LocalcordLanguage
 import org.jetbrains.yaml.YAMLLanguage
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertSame

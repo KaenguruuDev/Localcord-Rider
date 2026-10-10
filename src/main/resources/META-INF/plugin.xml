@@ -14,24 +14,33 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileType
                 name="Localcord Scenario"
-                implementationClass="dev.kaenguruudev.localcord.LocalcordScenarioFileType"
+                implementationClass="dev.kaenguruudev.localcord.filetype.LocalcordScenarioFileType"
                 fieldName="INSTANCE"
                 language="Localcord"
                 extensions="lc"/>
 
         <fileType
                 name="Localcord Fixture"
-                implementationClass="dev.kaenguruudev.localcord.LocalcordFixtureFileType"
+                implementationClass="dev.kaenguruudev.localcord.filetype.LocalcordFixtureFileType"
                 fieldName="INSTANCE"
                 language="YAML"
                 extensions="lcf"/>
+
+        <configurationType
+                implementation="dev.kaenguruudev.localcord.run.LocalcordRunConfigurationType"/>
+
+        <programRunner
+                implementation="dev.kaenguruudev.localcord.run.LocalcordRunProgramRunner"/>
+
+        <runLineMarkerContributor
+                implementationClass="dev.kaenguruudev.localcord.scenario.LocalcordScenarioRunLineMarkerContributor"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
         <server
                 id="localcord"
                 name="Localcord Language Server"
-                factoryClass="dev.kaenguruudev.localcord.LocalcordLanguageServerFactory">
+                factoryClass="dev.kaenguruudev.localcord.language.LocalcordLanguageServerFactory">
             <description><![CDATA[
                 <p>Starts <code>localcord lsp</code> for Localcord scenario files.</p>
                 <p>The Localcord CLI must be installed separately and available on the IDE's PATH.</p>

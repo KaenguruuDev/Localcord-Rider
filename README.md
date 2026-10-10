@@ -12,8 +12,41 @@ This plugin provides basic IDE integration for Localcord's custom DSL and fixtur
 
     * `.lc` — Localcord scenario files
     * `.lcf` — Localcord fixture files
+* Native Localcord run configurations with file chooser and runner options
+* Run and debug gutter actions on the first `scenario:` line
 
-Language functionality is provided by `localcord lsp`
+Language functionality is provided by `localcord lsp`. Running scenarios requires
+the Localcord CLI to be installed and available on the IDE's `PATH`.
+
+## Running scenarios
+
+Open a `.lc` file and use the gutter action beside its first `scenario:` line.
+The run action creates a temporary Localcord run configuration automatically.
+The debug action uses the same Localcord configuration as a normal run; Rider's
+selected executor chooses between the native runner and the LSP4IJ debugger.
+The `Run all Localcord scenarios` action uses the runner configuration's complete
+scenario list instead of filtering to the current file.
+
+For reusable settings, create a `Localcord` run configuration from the Run/Debug
+configuration dialog. It supports:
+
+* Scenario file
+* Optional `localcord.runner.yaml` override
+* Optional dotenv environment file
+* Optional base URL
+* Optional scenario filter
+* Disabling Compose orchestration
+* Verbose output
+
+In Rider, open `Run | Edit Configurations...`, select or add a `Localcord`
+configuration, and find `Disable Docker Compose orchestration` below the
+`Filter` field. The gutter actions use this same configuration for both run and
+debug.
+
+If no runner configuration override is supplied, the plugin searches the
+scenario's directory and its ancestors for `localcord.runner.yaml`. The settings
+from a matching Localcord run configuration are also applied when starting a
+debug session from the gutter.
 
 ## File Types
 
