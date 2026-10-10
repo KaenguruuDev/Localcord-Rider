@@ -3,6 +3,18 @@ import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.intellij.platform")
+    id("com.diffplug.spotless") version "8.10.2"
+}
+
+spotless {
+    kotlin {
+        target("src/**/*.kt")
+        ktfmt("0.64").kotlinlangStyle()
+    }
+}
+
+tasks.named("check") {
+    dependsOn("spotlessCheck")
 }
 
 java {
