@@ -1,4 +1,4 @@
-﻿package dev.kaenguruudev.localcord
+package dev.kaenguruudev.localcord.language
 
 import com.intellij.openapi.project.Project
 import com.redhat.devtools.lsp4ij.LanguageServerFactory

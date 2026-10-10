@@ -1,4 +1,4 @@
-﻿package dev.kaenguruudev.localcord
+package dev.kaenguruudev.localcord
 
 import com.intellij.openapi.util.IconLoader
 
