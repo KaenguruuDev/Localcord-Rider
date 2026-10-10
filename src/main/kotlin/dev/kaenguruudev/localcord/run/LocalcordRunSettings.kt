@@ -9,9 +9,20 @@ data class LocalcordRunSettings(
     var environmentFilePath: String = "",
     var baseUrl: String = "",
     var filter: String = "",
+    var reportFormat: String = "",
+    var junitPath: String = "",
+    var artifactsPath: String = "",
+    var repeat: String = "",
+    var seed: String = "",
+    var shuffle: Boolean = false,
+    var scenarioTimeout: String = "",
+    var parallel: String = "",
+    var failFast: Boolean = false,
     var runAll: Boolean = false,
     var noCompose: Boolean = false,
+    var reuseEnvironment: Boolean = false,
     var verbose: Boolean = false,
+    var diagnosticsLevel: String = "",
 ) {
     fun scenarioFile(): File = File(scenarioPath).absoluteFile
 

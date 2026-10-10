@@ -35,12 +35,14 @@ configuration dialog. It supports:
 * Optional dotenv environment file
 * Optional base URL
 * Optional scenario filter
+* Optional report format, JUnit output path, and failure artifacts path
+* Optional repeat, seed, shuffle, scenario timeout, and parallelism overrides
+* Optional fail-fast, environment reuse, and diagnostics level switches
 * Disabling Compose orchestration
 * Verbose output
 
-In Rider, open `Run | Edit Configurations...`, select or add a `Localcord`
-configuration, and find `Disable Docker Compose orchestration` below the
-`Filter` field. The gutter actions use this same configuration for both run and
+In Rider, open `Run | Edit Configurations...` and select or add a `Localcord`
+configuration. The gutter actions use this same configuration for both run and
 debug.
 
 If no runner configuration override is supplied, the plugin searches the
