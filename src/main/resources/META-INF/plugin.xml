@@ -23,7 +23,7 @@
                 name="Localcord Fixture"
                 implementationClass="dev.kaenguruudev.localcord.filetype.LocalcordFixtureFileType"
                 fieldName="INSTANCE"
-                language="YAML"
+                language="yaml"
                 extensions="lcf"/>
 
         <configurationType
